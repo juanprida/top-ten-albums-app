@@ -1,0 +1,1 @@
+# Top 10 Albums — v3\nImport/Export removed. Username auto-slug from name. Toasts instead of alerts. Save & Publish fixes to redirect to `/u/<slug>`. Customize Supabase emails in Auth → Templates/Branding.\n
