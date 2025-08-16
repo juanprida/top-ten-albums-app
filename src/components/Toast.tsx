@@ -1,6 +1,9 @@
-import React from 'react';
+import React from "react";
+
 type Toast = { id: string; text: string };
+
 const Ctx = React.createContext<{ push: (t: string) => void } | null>(null);
+
 export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = React.useState<Toast[]>([]);
   function push(text: string) {
@@ -26,6 +29,6 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
 }
 export function useToast() {
   const ctx = React.useContext(Ctx);
-  if (!ctx) throw new Error('ToastProvider missing');
+  if (!ctx) throw new Error("ToastProvider missing");
   return ctx;
 }

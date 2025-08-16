@@ -159,7 +159,7 @@ export default function AppEditor() {
         }
       }
       push('Published!');
-      nav(`/u/${uname}`);
+      nav(`/user/${uname}`);
     } catch {
       push('Please sign in to publish.');
     }

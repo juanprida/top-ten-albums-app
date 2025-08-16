@@ -1,22 +1,24 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { supabase } from '@/lib/supabase';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/Card';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
+
 export default function PublicProfile() {
   const { username } = useParams();
-  const [displayName, setDisplayName] = React.useState('');
+  const [displayName, setDisplayName] = React.useState("");
   const [albums, setAlbums] = React.useState<
     Array<{ rank: number; title: string; artist: string; why: string }>
   >([]);
   const [notFound, setNotFound] = React.useState(false);
+
   React.useEffect(() => {
     (async () => {
       if (!username) return;
       const slug = String(username).toLowerCase();
       const { data: prof } = await supabase
-        .from('profiles')
-        .select('id,display_name')
-        .eq('username', slug)
+        .from("profiles")
+        .select("id,display_name")
+        .eq("username", slug)
         .maybeSingle();
       if (!prof) {
         setNotFound(true);
@@ -24,10 +26,10 @@ export default function PublicProfile() {
       }
       setDisplayName(prof.display_name || slug);
       const { data: rows } = await supabase
-        .from('albums')
-        .select('rank,title,artist,why')
-        .eq('user_id', prof.id)
-        .order('rank');
+        .from("albums")
+        .select("rank,title,artist,why")
+        .eq("user_id", prof.id)
+        .order("rank");
       setAlbums(rows || []);
     })();
   }, [username]);
