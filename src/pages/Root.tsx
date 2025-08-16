@@ -53,7 +53,7 @@ export default function Root() {
         <Outlet />
       </main>
       <footer className="mx-auto max-w-5xl px-4 pb-8 pt-4 text-xs text-gray-400">
-        <span>Minimal design • white / gray / black • no distractions</span>
+        <span>Made by Juan Prida • 2025</span>
       </footer>
     </div>
   );
