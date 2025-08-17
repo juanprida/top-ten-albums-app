@@ -1,7 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
+import { Button } from "@/components/Button";
+import { Users } from "lucide-react";
 
 export default function PublicProfile() {
   const { username } = useParams();
@@ -36,6 +38,15 @@ export default function PublicProfile() {
   if (notFound) return <p>User not found.</p>;
   return (
     <div>
+      <div className="mb-6 flex items-center justify-between">
+        <h1 className="text-2xl font-bold text-gray-900">{displayName}'s Top 10</h1>
+        <Link to="/users">
+          <Button variant="outline" className="gap-2">
+            <Users className="h-4 w-4" />
+            Browse All Users
+          </Button>
+        </Link>
+      </div>
       <Card className="border-gray-200 shadow-none">
         <CardHeader>
           <CardTitle className="text-xl">{displayName}'s Top 10</CardTitle>

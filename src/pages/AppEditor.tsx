@@ -1,11 +1,11 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, ArrowUp, Plus, Save, Trash2, User } from 'lucide-react';
+import { ArrowDown, ArrowUp, Plus, Save, Trash2, User, Users } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Card, CardContent, CardHeader } from '@/components/Card';
 import { Input, Textarea, Badge } from '@/components/Input';
 import { supabase } from '@/lib/supabase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useToast } from '@/components/Toast';
 type Album = { id: string; title: string; artist: string; why: string };
 type Profile = { name: string; albums: Album[] };
@@ -202,6 +202,11 @@ export default function AppEditor() {
           />
         </div>
         <div className="flex items-center gap-2">
+          <Link to="/users">
+            <Button variant="outline" className="gap-2">
+              <Users className="h-4 w-4" /> Browse Users
+            </Button>
+          </Link>
           <Button onClick={addBlank} className="gap-2">
             <Plus className="h-4 w-4" /> Add album ({profile.albums.length}/
             {MAX_ALBUMS})

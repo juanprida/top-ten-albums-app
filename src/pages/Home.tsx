@@ -12,9 +12,14 @@ export default function Home() {
         <p className="mt-2 text-gray-600">
           Create your list, then share a clean public link.
         </p>
-        <Link to="/app">
-          <Button className="mt-6">Create my list</Button>
-        </Link>
+        <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <Link to="/app">
+            <Button>Create my list</Button>
+          </Link>
+          <Link to="/users">
+            <Button variant="outline">Browse all users</Button>
+          </Link>
+        </div>
       </CardContent>
     </Card>
   );

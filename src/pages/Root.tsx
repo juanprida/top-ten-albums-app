@@ -34,6 +34,12 @@ export default function Root() {
             </h1>
           </Link>
           <div className="flex items-center gap-2">
+            <Link to="/users">
+              <Button variant="outline" className="gap-2">
+                <Users className="h-4 w-4" />
+                All Users
+              </Button>
+            </Link>
             {user ? (
               <>
                 <Link to="/app">

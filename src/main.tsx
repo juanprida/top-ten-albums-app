@@ -6,6 +6,7 @@ import Root from './pages/Root';
 import Home from './pages/Home';
 import AppEditor from './pages/AppEditor';
 import PublicProfile from './pages/PublicProfile';
+import AllUsers from './pages/AllUsers';
 import { ToastProvider } from '@/components/Toast';
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'app', element: <AppEditor /> },
       { path: 'user/:username', element: <PublicProfile /> },
+      { path: 'users', element: <AllUsers /> },
     ],
   },
 ]);
